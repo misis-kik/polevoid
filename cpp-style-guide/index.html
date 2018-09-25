@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Правила кодирования C++ &mdash; polevoid.ru</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="polevoid.ru" href="../index.html"/>
+        <link rel="next" title="Введение" href="cpp-style-guide-intro.html"/>
+        <link rel="prev" title="&lt;no title&gt;" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> polevoid.ru
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Правила кодирования C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-intro.html">Введение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html">1. Правила именования</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html">2. Форматрирование исходного текста программ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-scoping.html">3. ::</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-scoping.html#id2">4. Локальные определения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vcs/index.html">Системы хранения версий (Version Control System, VCS)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">polevoid.ru</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Правила кодирования C++</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="c">
+<h1>Правила кодирования C++<a class="headerlink" href="#c" title="Permalink to this headline">False</a></h1>
+<blockquote class="epigraph">
+<div><dl class="docutils">
+<dt>Пускай и безобразно, зато единообразно.</dt>
+<dd>–Армейская мудрость.</dd>
+</dl>
+</div></blockquote>
+<p>Любая система лучше, чем бессистемное и разнородное.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cpp-style-guide-intro.html">Введение</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-intro.html#id2">Мотивированность</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-intro.html#id3">Ссылки</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cpp-style-guide-naming.html">1. Правила именования</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id2">1.1. Используйте правильный английский для идентификаторов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id3">1.2. Избегайте “бессодержательных” имен и нестандартных сокращений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id4">1.3. Сокращения (аббревиатуры) подчиняются общим правилам</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id5">1.4. Именование папок и файлов в нижнем регистре через подчеркивание</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id6">1.5. Используйте стандартные расширения для файлов с исходными кодами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id7">1.6. Пишите имена типов в смешанном регистре с заглавной буквы (без подчеркиваний)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id8">1.7. Пишите имена переменных в нижнем регистре через подчеркивания</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#k">1.8. Пишите имена неизменяемых и статических переменных в смешанном регистре с префиксом ‘k’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id9">1.9. Используйте стиль именования константых переменных для значений перечислений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id10">1.10. Пишите имена функций в смешанном регистре начиная с символа верхнего регистра</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id11">1.11. Используйте нижний регистр и подчеркивания для пространств имен</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id12">1.12. Использование распространенных сокращений и соглашений при именовании</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id13">1.13. Используйте верхний регистр и подчеркивания для макроопределений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id14">1.14. Используйте одиночные заглавные буквы для идентификаторов типизированных параметров шаблонов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id15">1.15. Избегайте отрицаний в идентификаторах</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html#id16">1.16. Избегайте запрещенных идентификаторов</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cpp-style-guide-formatting.html">2. Форматрирование исходного текста программ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#utf-8">2.1. Кодировка исходных файлов UTF-8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id2">2.2. Запрещается использовать спецсимволы в исходных текстах</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id3">2.3. Избегайте длинных файлов.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id4">2.4. Избегайте длинных функций.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id5">2.5. Основной отступ составляет 2 пробела</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id6">2.6. Обьявление и определение функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id7">2.7. Оформление вызова функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#for">2.8. Оформление инструкции цикла for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#while">2.9. Оформление инструкции цикла while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#do-while">2.10. Оформление инструкции цикла do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#switch">2.11. Инструкция выбора switch оформляется следующим образом.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id8">2.12. Длина строки исходного файла ограничена 80 символами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id9">2.13. Длинные строки разрывайте и переносите продолжение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id10">2.14. Расставляйте пробелы в соответсвии с рекомендациями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id11">2.15. Ставьте пробел после ключевых слов языка перед открывающей круглой скобкой</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id12">2.16. Не ставьте пробел после имен функций перед перед открывающей круглой скобкой</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id13">2.17. Не ставьте пробел между унарным оператором и его операндом</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id14">2.18. Ставьте пробел между бинарным/тернарным оператором и его операндами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id15">2.19. Ставьте пробел после запятой и не ставьте перед</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id16">2.20. Не ставьте пробел между базовым типом и ‘*’ или ‘&amp;’ в производных типах</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id17">2.21. Не ставьте пробел перед и после операторов доступа</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id18">2.22. Ствьте пробел между частями инструкции цикла for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id19">2.23. Не ставьте пробел после открывающей круглой скобки и перед закрывающей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id20">2.24. Разделяйте определения функций тремя пустыми строками</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id21">2.25. Размещайте не более одного оператора присваивания в строке</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id22">2.26. Каждая инструкция в своей строке</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id23">2.27. Скобки в сложных выражениях</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id24">2.28. Расставляйте пробелы в соответсвии с рекомендациями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id25">2.29. Ставьте пробел после ключевых слов языка перед открывающей круглой скобкой</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id26">2.30. Не ставьте пробел после имен функций перед перед открывающей круглой скобкой</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id27">2.31. Не ставьте пробел между унарным оператором и его операндом</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id28">2.32. Ставьте пробел между бинарным/тернарным оператором и его операндами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id29">2.33. Ставьте пробел после запятой и не ставьте перед</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id30">2.34. Не ставьте пробел между базовым типом и ‘*’ или ‘&amp;’ в производных типах</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id31">2.35. Не ставьте пробел перед и после операторов доступа</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id32">2.36. Ствьте пробел между частями инструкции цикла for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id33">2.37. Не ставьте пробел после открывающей круглой скобки и перед закрывающей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id34">2.38. Разделяйте определения функций тремя пустыми строками</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html#id35">2.39. Нестандартное форматирование дожно существенно улучшать читаемость кода</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cpp-style-guide-scoping.html">3. ::</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp-style-guide-scoping.html#id2">4. Локальные определения</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cpp-style-guide-intro.html" class="btn btn-neutral float-right" title="Введение" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
+      Last updated on Sep 23, 2018.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

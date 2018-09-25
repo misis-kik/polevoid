@@ -1,0 +1,4 @@
+.. toctree::
+   
+  cpp-style-guide/index
+  vcs/index

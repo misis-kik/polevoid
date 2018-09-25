@@ -1,0 +1,3 @@
+.. include:: cpp-style-guide-intro.txt
+.. include:: cpp-style-guide-naming.txt
+.. include:: cpp-style-guide-formatting.txt

@@ -1,0 +1,1357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Форматрирование исходного текста программ &mdash; polevoid.ru</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="polevoid.ru" href="../index.html"/>
+        <link rel="up" title="Правила кодирования C++" href="index.html"/>
+        <link rel="next" title="3. ::" href="cpp-style-guide-scoping.html"/>
+        <link rel="prev" title="1. Правила именования" href="cpp-style-guide-naming.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> polevoid.ru
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Правила кодирования C++</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-intro.html">Введение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html">1. Правила именования</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Форматрирование исходного текста программ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utf-8">2.1. Кодировка исходных файлов UTF-8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.2. Запрещается использовать спецсимволы в исходных текстах</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.3. Избегайте длинных файлов.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.4. Избегайте длинных функций.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.5. Основной отступ составляет 2 пробела</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.6. Обьявление и определение функции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.7. Оформление вызова функции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for">2.8. Оформление инструкции цикла for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#while">2.9. Оформление инструкции цикла while</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-while">2.10. Оформление инструкции цикла do-while</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#switch">2.11. Инструкция выбора switch оформляется следующим образом.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">2.12. Длина строки исходного файла ограничена 80 символами</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">2.13. Длинные строки разрывайте и переносите продолжение</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">2.14. Расставляйте пробелы в соответсвии с рекомендациями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">2.15. Ставьте пробел после ключевых слов языка перед открывающей круглой скобкой</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.16. Не ставьте пробел после имен функций перед перед открывающей круглой скобкой</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">2.17. Не ставьте пробел между унарным оператором и его операндом</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">2.18. Ставьте пробел между бинарным/тернарным оператором и его операндами</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">2.19. Ставьте пробел после запятой и не ставьте перед</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">2.20. Не ставьте пробел между базовым типом и ‘*’ или ‘&amp;’ в производных типах</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">2.21. Не ставьте пробел перед и после операторов доступа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">2.22. Ствьте пробел между частями инструкции цикла for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">2.23. Не ставьте пробел после открывающей круглой скобки и перед закрывающей</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">2.24. Разделяйте определения функций тремя пустыми строками</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">2.25. Размещайте не более одного оператора присваивания в строке</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">2.26. Каждая инструкция в своей строке</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">2.27. Скобки в сложных выражениях</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">2.28. Расставляйте пробелы в соответсвии с рекомендациями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">2.29. Ставьте пробел после ключевых слов языка перед открывающей круглой скобкой</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">2.30. Не ставьте пробел после имен функций перед перед открывающей круглой скобкой</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">2.31. Не ставьте пробел между унарным оператором и его операндом</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">2.32. Ставьте пробел между бинарным/тернарным оператором и его операндами</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">2.33. Ставьте пробел после запятой и не ставьте перед</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">2.34. Не ставьте пробел между базовым типом и ‘*’ или ‘&amp;’ в производных типах</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">2.35. Не ставьте пробел перед и после операторов доступа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">2.36. Ствьте пробел между частями инструкции цикла for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">2.37. Не ставьте пробел после открывающей круглой скобки и перед закрывающей</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">2.38. Разделяйте определения функций тремя пустыми строками</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">2.39. Нестандартное форматирование дожно существенно улучшать читаемость кода</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-scoping.html">3. ::</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-scoping.html#id2">4. Локальные определения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vcs/index.html">Системы хранения версий (Version Control System, VCS)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">polevoid.ru</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Правила кодирования C++</a> &raquo;</li>
+        
+      <li>2. Форматрирование исходного текста программ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2. Форматрирование исходного текста программ<a class="headerlink" href="#id1" title="Permalink to this headline">False</a></h1>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Настройте ваш редактор на автоматическое поддержание правильного форматирования.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Используйте инструментарий проверки форматирования исходных текстов.</p>
+</div>
+<div class="section" id="utf-8">
+<h2>2.1. Кодировка исходных файлов UTF-8<a class="headerlink" href="#utf-8" title="Permalink to this headline">False</a></h2>
+</div>
+<div class="section" id="id2">
+<h2>2.2. Запрещается использовать спецсимволы в исходных текстах<a class="headerlink" href="#id2" title="Permalink to this headline">False</a></h2>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Особое внимание обращать на вставку в исходный код символа
+табуляции.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">При необходимости произведите настройку вашей IDE на автоматическую
+замену табуляций соответствующим числом пробелов.</p>
+</div>
+<p>Количество пробелов, на которое заменяется табулятор при показе, является
+настройкой текстового редактора и может быть разным. Смешение в коде отступов
+с помощью нескольких пробелов и табуляций приводит к непредсказуемым визуальным
+нарушениям структуры отступов при просмотре.</p>
+<p>Например, при показе табуляции в 2 пробела</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">j</span> <span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">i</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>При показе табуляции в 3 пробела</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">j</span> <span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+      <span class="n">i</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>При показе табуляции в 4 пробела</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">j</span> <span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="n">i</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>При показе табуляции в 8 пробелов</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">j</span> <span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+                <span class="n">i</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id3">
+<h2>2.3. Избегайте длинных файлов.<a class="headerlink" href="#id3" title="Permalink to this headline">False</a></h2>
+<p>Длинными считаются файлы более 1000 строк.</p>
+</div>
+<div class="section" id="id4">
+<h2>2.4. Избегайте длинных функций.<a class="headerlink" href="#id4" title="Permalink to this headline">False</a></h2>
+<p>Длинными считаются функции более 180 строк.</p>
+</div>
+<div class="section" id="id5">
+<h2>2.5. Основной отступ составляет 2 пробела<a class="headerlink" href="#id5" title="Permalink to this headline">False</a></h2>
+<p>Тело составного блока размещайте с основным отступом относительно границ блока.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_elements</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_elements</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Исключение составляют пространства имен, для которых отступ внутри блока не делается.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//</span>
+
+<span class="k">namespace</span> <span class="n">common</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="k">namespace</span> <span class="n">nested_name_space</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">Y</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="p">}</span> <span class="c1">// namespace nested_name_space</span>
+<span class="p">}</span> <span class="c1">// common</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">comon</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">};</span>
+
+    <span class="k">namespace</span> <span class="n">nested_name_space</span> <span class="p">{</span>
+        <span class="k">class</span> <span class="nc">Y</span><span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">};</span>
+    <span class="p">}</span> <span class="c1">// namespace nested_name_space</span>
+<span class="p">}</span> <span class="c1">// common</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>2.6. Обьявление и определение функции<a class="headerlink" href="#id6" title="Permalink to this headline">False</a></h2>
+<p>Тип возвращаемого значения указывайте на той же строке, что и имя функции.
+Если хватает длинны строки, указывайте на той же строке, что и имя функции
+* параметры функции;
+* спецификатор noexept.</p>
+<p>Тело определения функции начинайте с новой строки и завершайте на новой строке.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ReturnType</span> <span class="n">ClassName</span><span class="o">::</span><span class="n">FunctionName</span><span class="p">(</span><span class="n">Type</span> <span class="n">par_name1</span><span class="p">,</span> <span class="n">Type</span> <span class="n">par_name2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">DoSomething</span><span class="p">();</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>При необходимости переноса можно выравнивать по первому параметру.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ReturnType</span> <span class="n">ClassName</span><span class="o">::</span><span class="n">ReallyLongFunctionName</span><span class="p">(</span><span class="n">Type</span> <span class="n">par_name1</span><span class="p">,</span> <span class="n">Type</span> <span class="n">par_name2</span><span class="p">,</span>
+                                             <span class="n">Type</span> <span class="n">par_name3</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">DoSomething</span><span class="p">();</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Если параметров совсем много, то при переносе списка переменных используется
+удвоенный стандартный отступ (т.е. 4 пробела).</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ReturnType</span> <span class="n">LongClassName</span><span class="o">::</span><span class="n">ReallyReallyReallyLongFunctionName</span><span class="p">(</span>
+    <span class="n">Type</span> <span class="n">par_name1</span><span class="p">,</span>  <span class="c1">// 4 space indent</span>
+    <span class="n">Type</span> <span class="n">par_name2</span><span class="p">,</span>
+    <span class="n">Type</span> <span class="n">par_name3</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">DoSomething</span><span class="p">();</span>  <span class="c1">// стан2 space indent</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>2.7. Оформление вызова функции<a class="headerlink" href="#id7" title="Permalink to this headline">False</a></h2>
+<p>Вызов функции оформляется с использованием минимальн возможного числа строк.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">DoSomething</span><span class="p">(</span><span class="n">argument1</span><span class="p">,</span> <span class="n">argument2</span><span class="p">,</span> <span class="n">argument3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Если все аргументы и скобки не удается разместить в одной строке, то используйте
+перенос строк с выравниванием по скобкам или с отступом в 4 пробела.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">DoSomething</span><span class="p">(</span><span class="n">averyveryveryverylongargument1</span><span class="p">,</span>
+                    <span class="n">argument2</span><span class="p">,</span> <span class="n">argument3</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">DoSomething</span><span class="p">(</span><span class="n">averyveryveryverylongargument1</span><span class="p">,</span>
+    <span class="n">argument2</span><span class="p">,</span> <span class="n">argument3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Допустимо использование нестандартного форматирования, если оно сильно улучшает
+визуальное воспритие кода.</p>
+<blockquote>
+<div><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Transform the widget by a 3x3 matrix.</span>
+<span class="n">my_widget</span><span class="p">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span>
+                    <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span>
+                    <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">z3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="for">
+<h2>2.8. Оформление инструкции цикла for<a class="headerlink" href="#for" title="Permalink to this headline">False</a></h2>
+<p>Цикл for оформляется в соответствии с общим принципом оформления блоков следующим образом.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="s">&quot;initialization&quot;</span><span class="p">;</span> <span class="s">&quot;condition&quot;</span><span class="p">;</span> <span class="s">&quot;update&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">ptrdiff_t</span> <span class="n">i_page</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i_page</span> <span class="o">&lt;</span> <span class="n">n_page</span><span class="p">;</span> <span class="n">i_page</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">range</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">summ</span> <span class="o">+=</span> <span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">ptrdiff_t</span> <span class="n">i_page</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i_page</span> <span class="o">&lt;</span> <span class="n">n_page</span><span class="p">;</span> <span class="n">i_page</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">range</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">summ</span> <span class="o">+=</span> <span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">range</span><span class="p">)</span> <span class="p">{</span> <span class="n">summ</span> <span class="o">+=</span> <span class="n">v</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Пустое и однострочное тело цикла оформляется по общему шаблону и обрамляется скобками.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">range</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">ptrdiff_t</span> <span class="n">i_page</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i_page</span> <span class="o">&lt;</span> <span class="n">n_page</span><span class="p">;</span> <span class="n">i_page</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="while">
+<h2>2.9. Оформление инструкции цикла while<a class="headerlink" href="#while" title="Permalink to this headline">False</a></h2>
+<p>Цикл while оформлятеся в соответствии с общим принципом оформления блоков следующим образом.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="s">&quot;condition&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_read</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_read</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Пустое и однострочное тело цикла оформляется по общему шаблону и обрамляется скобками.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_read</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Read</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_read</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_read</span><span class="p">)</span>
+    <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="do-while">
+<h2>2.10. Оформление инструкции цикла do-while<a class="headerlink" href="#do-while" title="Permalink to this headline">False</a></h2>
+<p>Цикл do - while оформлятеся в соответствии с общим принципом оформления блоков следующим образом.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Использовать цикл do-while не рекомендуется.</p>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="s">&quot;condition&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">Up</span><span class="p">();</span>
+    <span class="n">Go</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">inside</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Однострочное тело цикла оформляется по общему шаблону и обрамляется скобками.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">Move</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">inside</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="switch">
+<h2>2.11. Инструкция выбора switch оформляется следующим образом.<a class="headerlink" href="#switch" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>ШАБЛОН оформления switch</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="s">&quot;condition&quot;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="nl">DEF</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">case</span> <span class="nl">XYZ</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>2.12. Длина строки исходного файла ограничена 80 символами<a class="headerlink" href="#id8" title="Permalink to this headline">False</a></h2>
+<p>Используйте разрывы строк для более длинных строк.</p>
+<p>Основание: реализация ограничения на длину строки происходит либо отбрасывание,
+либо переносом конца, при этом исходный текст становится трудным для восприятия.
+Отсутствие ограничения на длину строки у других разработчиков гарантировать
+невозможно. 80 является общепризнанным соглашением о количестве символов в строке
+редакторов, эмуляторов терминалов (консолей), принтеров и отладчиков.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">перевести исключения из правил
+a comment line which is not feasible to split without harming readability, ease of cut
+and paste or auto-linking – e.g. if a line contains an example command or a literal
+URL longer than 80 characters.
+a raw-string literal with content that exceeds 80 characters. Except for test code,
+such literals should appear near the top of a file.
+an include statement.
+a header guard
+a using-declaration</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>2.13. Длинные строки разрывайте и переносите продолжение<a class="headerlink" href="#id9" title="Permalink to this headline">False</a></h2>
+<p>Делайте очевидным и хорошо заметным в коде разрыв строки. Выравнивайте новую
+строку в соответствии с предыдущей строкой. Базовое выравнивание продолжения
+соответсвует 2-м базовым отступам блока, т.е. 4 пробела.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Если необходимость переноса вызвана слишком длинным выражением, то
+часто лучше не переносить части такого выражения на следующие строки, а
+разбить вычисление самого выражения на несколько простых шагов, каждое из
+которых будет умещаться в одну строку. Читать и отлаживать такой код будет
+проще.</p>
+</div>
+<p>При переносе длинных логических выражений логические операторы дожны стоять в
+начале перенесенной строки.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">Doc</span><span class="o">::</span><span class="n">Status</span><span class="o">::</span><span class="n">IS_OPENED</span> <span class="o">==</span> <span class="n">document</span><span class="p">.</span><span class="n">status</span><span class="p">()</span>
+        <span class="o">||</span> <span class="n">line</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span>
+        <span class="o">||</span> <span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">id</span><span class="p">()</span> <span class="o">==</span> <span class="n">idNext</span> <span class="o">&amp;&amp;</span> <span class="n">line</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">str</span><span class="p">().</span><span class="n">empty</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">Doc</span><span class="o">::</span><span class="n">Status</span><span class="o">::</span><span class="n">IS_OPENED</span> <span class="o">==</span> <span class="n">document</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">||</span>
+        <span class="n">line</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span> <span class="o">||</span>
+        <span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">id</span><span class="p">()</span> <span class="o">==</span> <span class="n">idNext</span> <span class="o">&amp;&amp;</span> <span class="n">line</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">str</span><span class="p">().</span><span class="n">empty</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Разрыв строки длинного выражения.</p>
+</div>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">Разрыв длинного строкового литерала.</p>
+</div>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">Разрыв длинной управляющей инструкции.</p>
+</div>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">Разрыв длинного списка инициализации.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h2>2.14. Расставляйте пробелы в соответсвии с рекомендациями<a class="headerlink" href="#id10" title="Permalink to this headline">False</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Перечисление всех ситуаций, когда необходимо ставить или не ставить
+пробел, не является полным.</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>2.15. Ставьте пробел после ключевых слов языка перед открывающей круглой скобкой<a class="headerlink" href="#id11" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_go</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_go</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>2.16. Не ставьте пробел после имен функций перед перед открывающей круглой скобкой<a class="headerlink" href="#id12" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MoveNext</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MoveNext</span> <span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>2.17. Не ставьте пробел между унарным оператором и его операндом<a class="headerlink" href="#id13" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span><span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="n">IsGood</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span> <span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> <span class="n">IsGood</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>2.18. Ставьте пробел между бинарным/тернарным оператором и его операндами<a class="headerlink" href="#id14" title="Permalink to this headline">False</a></h2>
+<p>Исключением является оператор запятая.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">a</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">d</span> <span class="o">?</span> <span class="n">a</span><span class="o">-</span><span class="nl">c</span> <span class="p">:</span> <span class="n">d</span><span class="o">-</span><span class="n">a</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>2.19. Ставьте пробел после запятой и не ставьте перед<a class="headerlink" href="#id15" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span> <span class="n">b</span> <span class="p">,</span> <span class="n">c</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>2.20. Не ставьте пробел между базовым типом и ‘*’ или ‘&amp;’ в производных типах<a class="headerlink" href="#id16" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">*</span> <span class="nf">p</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">CheckForErrors</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">*</span><span class="nf">p</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">*</span> <span class="nf">p</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">replace</span><span class="p">(</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>2.21. Не ставьте пробел перед и после операторов доступа<a class="headerlink" href="#id17" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-5">
+<p class="first admonition-title">Todo</p>
+<p class="last">Перечислить операторы доступа.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">-&gt;</span><span class="n">go</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>2.22. Ствьте пробел между частями инструкции цикла for<a class="headerlink" href="#id18" title="Permalink to this headline">False</a></h2>
+<ul class="simple">
+<li>после точки с запятой в инструкции цикла for</li>
+</ul>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_action</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nAction</span> <span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">);(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nAction</span><span class="p">);</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li>до и после двоеточия в интервальной версии инструкции for</li>
+</ul>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">page</span> <span class="p">:</span> <span class="n">pages</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">page</span><span class="p">:</span> <span class="n">pages</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id19">
+<h2>2.23. Не ставьте пробел после открывающей круглой скобки и перед закрывающей<a class="headerlink" href="#id19" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">is_ready</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span> <span class="n">b</span> <span class="p">,</span> <span class="n">c</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">isReady</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>2.24. Разделяйте определения функций тремя пустыми строками<a class="headerlink" href="#id20" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">DoSomethingA</span><span class="p">()</span> <span class="p">{</span>
+     <span class="c1">// ...</span>
+<span class="p">}</span>
+
+
+
+<span class="kt">void</span> <span class="nf">DoSomethingB</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>2.25. Размещайте не более одного оператора присваивания в строке<a class="headerlink" href="#id21" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id22">
+<h2>2.26. Каждая инструкция в своей строке<a class="headerlink" href="#id22" title="Permalink to this headline">False</a></h2>
+<p>Размещайте не более одной инструкции в одной строке (в строке не больше одной
+‘;’, кроме случая цикла for).</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">i_border_left</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">FindBorder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i_border_left</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">i_border_left</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">FindBorder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i_border_left</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id23">
+<h2>2.27. Скобки в сложных выражениях<a class="headerlink" href="#id23" title="Permalink to this headline">False</a></h2>
+<p>Полагайтесь на приоритет только арифметических операторов. Используйте скобки
+для явного выделения частей выражений и указания приоритета вычислений.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">|</span> <span class="n">e</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">c</span> <span class="o">|</span> <span class="n">e</span> <span class="o">&amp;</span> <span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id24">
+<h2>2.28. Расставляйте пробелы в соответсвии с рекомендациями<a class="headerlink" href="#id24" title="Permalink to this headline">False</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Перечисление всех ситуаций, когда необходимо ставить или не ставить
+пробел, не является полным.</p>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>2.29. Ставьте пробел после ключевых слов языка перед открывающей круглой скобкой<a class="headerlink" href="#id25" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_go</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">should_go</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id26">
+<h2>2.30. Не ставьте пробел после имен функций перед перед открывающей круглой скобкой<a class="headerlink" href="#id26" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MoveNext</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MoveNext</span> <span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id27">
+<h2>2.31. Не ставьте пробел между унарным оператором и его операндом<a class="headerlink" href="#id27" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span><span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="n">IsGood</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span> <span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> <span class="n">IsGood</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id28">
+<h2>2.32. Ставьте пробел между бинарным/тернарным оператором и его операндами<a class="headerlink" href="#id28" title="Permalink to this headline">False</a></h2>
+<p>Исключением является оператор запятая.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">a</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">d</span> <span class="o">?</span> <span class="n">a</span><span class="o">-</span><span class="nl">c</span> <span class="p">:</span> <span class="n">d</span><span class="o">-</span><span class="n">a</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id29">
+<h2>2.33. Ставьте пробел после запятой и не ставьте перед<a class="headerlink" href="#id29" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span> <span class="n">b</span> <span class="p">,</span> <span class="n">c</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id30">
+<h2>2.34. Не ставьте пробел между базовым типом и ‘*’ или ‘&amp;’ в производных типах<a class="headerlink" href="#id30" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">*</span> <span class="nf">p</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">CheckForErrors</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">*</span><span class="nf">p</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">*</span> <span class="nf">p</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">replace</span><span class="p">(</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id31">
+<h2>2.35. Не ставьте пробел перед и после операторов доступа<a class="headerlink" href="#id31" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-6">
+<p class="first admonition-title">Todo</p>
+<p class="last">Перечислить операторы доступа.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">-&gt;</span><span class="n">go</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id32">
+<h2>2.36. Ствьте пробел между частями инструкции цикла for<a class="headerlink" href="#id32" title="Permalink to this headline">False</a></h2>
+<ul class="simple">
+<li>после точки с запятой в инструкции цикла for</li>
+</ul>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_action</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nAction</span> <span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">);(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nAction</span><span class="p">);</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li>до и после двоеточия в интервальной версии инструкции for</li>
+</ul>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">page</span> <span class="p">:</span> <span class="n">pages</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">page</span><span class="p">:</span> <span class="n">pages</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id33">
+<h2>2.37. Не ставьте пробел после открывающей круглой скобки и перед закрывающей<a class="headerlink" href="#id33" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">is_ready</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DoSomething</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span> <span class="n">b</span> <span class="p">,</span> <span class="n">c</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">isReady</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id34">
+<h2>2.38. Разделяйте определения функций тремя пустыми строками<a class="headerlink" href="#id34" title="Permalink to this headline">False</a></h2>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">DoSomethingA</span><span class="p">()</span> <span class="p">{</span>
+     <span class="c1">// ...</span>
+<span class="p">}</span>
+
+
+
+<span class="kt">void</span> <span class="nf">DoSomethingB</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id35">
+<h2>2.39. Нестандартное форматирование дожно существенно улучшать читаемость кода<a class="headerlink" href="#id35" title="Permalink to this headline">False</a></h2>
+<p>Используйте отличное от рекомендуемого форматирование только в том случае, если
+его использование существенно улучшает читаемость кода.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">phase</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">kPhasePre</span>    <span class="p">:</span> <span class="n">Start</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="s">&quot;Pre&quot;</span><span class="p">);</span>    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">kPhaseCommon</span> <span class="p">:</span> <span class="n">Start</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="s">&quot;Common&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">kPhasePos</span>    <span class="p">:</span> <span class="n">Start</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="s">&quot;Pos&quot;</span><span class="p">);</span>    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="k">default</span>      <span class="o">:</span> <span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="s">&quot;Undefined type of phase&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cpp-style-guide-scoping.html" class="btn btn-neutral float-right" title="3. ::" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cpp-style-guide-naming.html" class="btn btn-neutral" title="1. Правила именования" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
+      Last updated on Sep 23, 2018.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

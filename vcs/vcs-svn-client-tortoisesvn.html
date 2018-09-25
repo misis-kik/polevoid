@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. SVN-клиент TortoiseSVN (Windows) &mdash; polevoid.ru</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="polevoid.ru" href="../index.html"/>
+        <link rel="up" title="Системы хранения версий" href="index.html"/>
+        <link rel="next" title="3. Инсталляция SVN-клиент TortoiseSVN (Windows)" href="vcs-svn-client-tortoisesvn-install.html"/>
+        <link rel="prev" title="1. Использование сервиса mysvn.ru" href="vcs-hosting-mysvn-ru.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> polevoid.ru
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cpp-style-guide/index.html">Правила кодирования C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Системы хранения версий</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vcs-hosting-mysvn-ru.html">1. Использование сервиса mysvn.ru</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. SVN-клиент TortoiseSVN (Windows)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checkout">2.1. Извлечение рабочей копии (checkout)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-svn-client-tortoisesvn-add">2.2. Добавление папок и файлов в рабочей копии</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit">2.3. Внесение изменений (commit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-svn-client-tortoisesvn-rename">2.4. Переименование файлов и папок в рабочей копии</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-svn-client-tortoisesvn-remove">2.5. Удаление файлов и папок в рабочей копии</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-svn-client-tortoisesvn-undo">2.6. Отмена изменений в рабочей копии</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vcs-svn-client-tortoisesvn-install.html">3. Инсталляция SVN-клиент TortoiseSVN (Windows)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcs-svn-client-svn.html">4. Консольный SVN-клиент</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">polevoid.ru</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Системы хранения версий</a> &raquo;</li>
+        
+      <li>2. SVN-клиент TortoiseSVN (Windows)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="svn-tortoisesvn-windows">
+<span id="vcs-svn-client-tortoisesvn"></span><h1>2. SVN-клиент TortoiseSVN (Windows)<a class="headerlink" href="#svn-tortoisesvn-windows" title="Permalink to this headline">False</a></h1>
+<p>При необходимости скачивания и инсталляции клиента
+<a class="reference internal" href="vcs-svn-client-tortoisesvn-install.html#vcs-svn-client-tortoisesvn-install"><span class="std std-ref">ознакомьтесь</span></a> с соответсвующим
+разделом.</p>
+<p>Проводник Windows (далее Проводник) — это графический интерфейс доступа к
+файловой системе в операционных системах семейства Microsoft Windows.
+Для desktop-систем Проводник является основой графической оболочки OC
+(пиктограммы рабочего стола, панель задач, меню «Пуск»).</p>
+<p>SVN-клиент TortoiseSVN интегрируется с Проводником, то есть является расширением
+Проводника и не может быть запущен через пункт меню <span class="guilabel">Пуск</span>.
+После установки клиент добавляет новые пункты в контекстные меню Проводника,
+через которые осуществляется доступ к основному функционалу клиента
+(по нажатию правой кнопки мыши(.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/context-menu-in-folder.png"><img alt="TortoiseSVN context menu for unversioned folders" src="../_images/context-menu-in-folder.png" style="width: 479.0px; height: 214.0px;" /></a>
+<p class="caption"><span class="caption-text">Меню TortoiseSVN для неверсифицированных папок.</span></p>
+</div>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/context-menu-in-folder-under-svn.png"><img alt="TortoiseSVN context menu for versioned folders" src="../_images/context-menu-in-folder-under-svn.png" style="width: 492.0px; height: 517.0px;" /></a>
+<p class="caption"><span class="caption-text">Меню TortoiseSVN для неверсифицированных папок.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Язык отображения пунктов меню зависит от настроек системы.</p>
+</div>
+<p>Клиент изменяет отображение как самих версифицированных папок, так и объектов
+файловой системы (папок и файлов) внутри версифицированных папок.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">скриншот или ссылку на раздел</p>
+</div>
+<div class="section" id="checkout">
+<span id="vcs-svn-client-tortoisesvn-checkout"></span><h2>2.1. Извлечение рабочей копии (checkout)<a class="headerlink" href="#checkout" title="Permalink to this headline">False</a></h2>
+</div>
+<div class="section" id="vcs-svn-client-tortoisesvn-add">
+<span id="id1"></span><h2>2.2. Добавление папок и файлов в рабочей копии<a class="headerlink" href="#vcs-svn-client-tortoisesvn-add" title="Permalink to this headline">False</a></h2>
+</div>
+<div class="section" id="commit">
+<span id="vcs-svn-client-tortoisesvn-commit"></span><h2>2.3. Внесение изменений (commit)<a class="headerlink" href="#commit" title="Permalink to this headline">False</a></h2>
+</div>
+<div class="section" id="vcs-svn-client-tortoisesvn-rename">
+<span id="id2"></span><h2>2.4. Переименование файлов и папок в рабочей копии<a class="headerlink" href="#vcs-svn-client-tortoisesvn-rename" title="Permalink to this headline">False</a></h2>
+</div>
+<div class="section" id="vcs-svn-client-tortoisesvn-remove">
+<span id="id3"></span><h2>2.5. Удаление файлов и папок в рабочей копии<a class="headerlink" href="#vcs-svn-client-tortoisesvn-remove" title="Permalink to this headline">False</a></h2>
+</div>
+<div class="section" id="vcs-svn-client-tortoisesvn-undo">
+<span id="id4"></span><h2>2.6. Отмена изменений в рабочей копии<a class="headerlink" href="#vcs-svn-client-tortoisesvn-undo" title="Permalink to this headline">False</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vcs-svn-client-tortoisesvn-install.html" class="btn btn-neutral float-right" title="3. Инсталляция SVN-клиент TortoiseSVN (Windows)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vcs-hosting-mysvn-ru.html" class="btn btn-neutral" title="1. Использование сервиса mysvn.ru" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
+      Last updated on Sep 23, 2018.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

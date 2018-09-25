@@ -1,0 +1,13 @@
+********************************************************************************
+Системы хранения версий
+********************************************************************************
+
+ (Version Control System, VCS)
+
+.. toctree::
+   :numbered:
+
+   vcs-hosting-mysvn-ru
+   vcs-svn-client-tortoisesvn
+   vcs-svn-client-tortoisesvn-install
+   vcs-svn-client-svn   

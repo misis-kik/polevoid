@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Правила именования &mdash; polevoid.ru</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="polevoid.ru" href="../index.html"/>
+        <link rel="up" title="Правила кодирования C++" href="index.html"/>
+        <link rel="next" title="2. Форматрирование исходного текста программ" href="cpp-style-guide-formatting.html"/>
+        <link rel="prev" title="Введение" href="cpp-style-guide-intro.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> polevoid.ru
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Правила кодирования C++</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-intro.html">Введение</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Правила именования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.1. Используйте правильный английский для идентификаторов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.2. Избегайте “бессодержательных” имен и нестандартных сокращений</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.3. Сокращения (аббревиатуры) подчиняются общим правилам</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.4. Именование папок и файлов в нижнем регистре через подчеркивание</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.5. Используйте стандартные расширения для файлов с исходными кодами</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.6. Пишите имена типов в смешанном регистре с заглавной буквы (без подчеркиваний)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.7. Пишите имена переменных в нижнем регистре через подчеркивания</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#k">1.8. Пишите имена неизменяемых и статических переменных в смешанном регистре с префиксом ‘k’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.9. Используйте стиль именования константых переменных для значений перечислений</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.10. Пишите имена функций в смешанном регистре начиная с символа верхнего регистра</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.11. Используйте нижний регистр и подчеркивания для пространств имен</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">1.12. Использование распространенных сокращений и соглашений при именовании</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">1.13. Используйте верхний регистр и подчеркивания для макроопределений</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">1.14. Используйте одиночные заглавные буквы для идентификаторов типизированных параметров шаблонов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">1.15. Избегайте отрицаний в идентификаторах</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">1.16. Избегайте запрещенных идентификаторов</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html">2. Форматрирование исходного текста программ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-scoping.html">3. Локальные определения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vcs/index.html">Системы хранения версий (Version Control System, VCS)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">polevoid.ru</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Правила кодирования C++</a> &raquo;</li>
+        
+      <li>1. Правила именования</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1. Правила именования<a class="headerlink" href="#id1" title="Permalink to this headline">False</a></h1>
+<div class="section" id="id2">
+<h2>1.1. Используйте правильный английский для идентификаторов<a class="headerlink" href="#id2" title="Permalink to this headline">False</a></h2>
+<p>Все имена и идентификаторы пишутся на английском (без использования
+транслитерации и т.д.)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">imya_fayla</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>1.2. Избегайте “бессодержательных” имен и нестандартных сокращений<a class="headerlink" href="#id3" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Добавить типовых примеров</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// подсчет суммы четных натуральных не превышающих 10</span>
+<span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// подсчет суммы четных натуральных не превышающих 10</span>
+<span class="kt">int</span> <span class="nf">tmp</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">a</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">tmp</span> <span class="o">+=</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h2>1.3. Сокращения (аббревиатуры) подчиняются общим правилам<a class="headerlink" href="#id4" title="Permalink to this headline">False</a></h2>
+<p>Если в качестве имен (части имен) используются сокращения, аббревиатуры и
+акронимы, то последние должны подчиняться общим правилам.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ExportHtmlSource</span><span class="p">();</span>
+
+<span class="n">OpenDvdPlayer</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ExportHTMLSource</span><span class="p">();</span>
+
+<span class="n">OpenDVDPlayer</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h2>1.4. Именование папок и файлов в нижнем регистре через подчеркивание<a class="headerlink" href="#id5" title="Permalink to this headline">False</a></h2>
+<p>Имена файлов и папок исходного кода пишутся в нижнем регистре через подчеркивания.
+Исключения в части регистра допустимы для библиотек сторонних разработчиков и при
+наличии технологических ограничений (например, файлы системы сборки CMake вида
+CMakeList.txt).</p>
+<p>При выборе имен следует избегать повторения имен стандартной библиотеки и
+распространных библиотек сторонних разработчиков. Приветствуется использование
+достаточно длинных и информативных имен.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><p class="first">report_generator</p>
+<p class="last">report_generator.h</p>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><p class="first">db.h</p>
+<p class="last">crepgen.hpp</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h2>1.5. Используйте стандартные расширения для файлов с исходными кодами<a class="headerlink" href="#id6" title="Permalink to this headline">False</a></h2>
+<p>Используйте для различных типов файлов следующие расширения:</p>
+<ul class="simple">
+<li>«h» - заголовочные файлы С++</li>
+<li>«cpp» - файлы реализаций С++</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><p class="first">report_generator.h</p>
+<p class="last">report_generator.cpp</p>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><p class="first">crepgen.H</p>
+<p>crepgen.hpp</p>
+<p>report_generator.cxx</p>
+<p class="last">report.c</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h2>1.6. Пишите имена типов в смешанном регистре с заглавной буквы (без подчеркиваний)<a class="headerlink" href="#id7" title="Permalink to this headline">False</a></h2>
+<p>Имена всех типов (классов, структур, псевдонимов типа, перечислений и параметров
+шаблонов) пишите в смешанном регистре с заглавной буквы без подчеркиваний. Каждое
+новое слово в имени типа начинайте с заглавной буквы.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// classes and structs</span>
+<span class="k">class</span> <span class="nc">Rational</span> <span class="p">{</span> <span class="p">...</span>
+
+<span class="k">class</span> <span class="nc">UrlTableTester</span> <span class="p">{</span> <span class="p">...</span>
+
+<span class="k">struct</span> <span class="n">UrlTableProperties</span> <span class="p">{</span> <span class="p">...</span>
+
+<span class="c1">// using aliases</span>
+<span class="k">using</span> <span class="n">PropertiesMap</span> <span class="o">=</span> <span class="n">hash_map</span><span class="o">&lt;</span><span class="n">UrlTableProperties</span><span class="o">*</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// enums</span>
+<span class="k">enum</span> <span class="n">UrlTableErrors</span> <span class="p">{</span> <span class="p">...</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rational</span> <span class="p">{</span> <span class="p">...</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h2>1.7. Пишите имена переменных в нижнем регистре через подчеркивания<a class="headerlink" href="#id8" title="Permalink to this headline">False</a></h2>
+<p>Имена всех переменных (локальных, глобальных, параметров функций и полей) пишите
+в нижнем регистре с использованием символа подчеркивания для разделения отедельных
+слов.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">str_message</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">strmessage</span>
+
+<span class="n">str_message</span>
+
+<span class="n">StrMessage</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Имена полей структур подчиняются общему правилу именоваания переменных.
+Имена полей классов завершайте символом подчеркивания.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FileInfo</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">file_path_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">ComplexNumber</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">double</span> <span class="n">re</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">im</span><span class="p">;</span>
+  <span class="c1">// ...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FileInfo</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">m_file_path_</span><span class="p">;</span> <span class="c1">// нестандартный префикс</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">file_alias</span><span class="p">;</span>   <span class="c1">// нет стандартного суффикса</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="k">
+<h2>1.8. Пишите имена неизменяемых и статических переменных в смешанном регистре с префиксом ‘k’<a class="headerlink" href="#k" title="Permalink to this headline">False</a></h2>
+<p>Используйте префикс ‘k’ для имен неименяемых (const, constexpr), глобальных и
+статических (static) переменных. Если смешанный регистр затрудняет чтение, то
+можно использовать подчеркивание для отделения префикса.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="nf">kDaysInAWeek</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="nf">kAndroid8_0_0</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span> <span class="c1">// Android 8.0.0</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">kCallCounter</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="nf">k_days_in_a_week</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h2>1.9. Используйте стиль именования константых переменных для значений перечислений<a class="headerlink" href="#id9" title="Permalink to this headline">False</a></h2>
+<p>Пишите имена значений перечислений аналогично константным переменным, т.е. в
+смешанном регистре с префиксом ‘k’.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">UrlTableErrors</span> <span class="p">{</span>
+  <span class="n">kSuccess</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="n">kErrorOutOfMemory</span><span class="p">,</span>
+  <span class="n">kErrorMalformedInput</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">MaxIterations</span>
+<span class="n">max_iterations</span>
+<span class="n">MAXITERATIONS</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h2>1.10. Пишите имена функций в смешанном регистре начиная с символа верхнего регистра<a class="headerlink" href="#id10" title="Permalink to this headline">False</a></h2>
+<p>Имена функций пишите в смешанном регистре начиная с символа верхнего регистра.
+Выбирайте имена функциям в зависимости от их семантики. Функциям (возвращают
+некоторое значение) давайте имена в соответствии с тем, что они возвращают.
+Процедурам (ничего не возвращают) давайте имена в соответствии с тем, что они
+делают. Рекомендуется начинать имя функции с глагола (английского).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">AddTableEntry</span><span class="p">()</span>
+<span class="n">DeleteUrl</span><span class="p">()</span>
+<span class="n">OpenFileOrDie</span><span class="p">()</span>
+<span class="n">GetName</span><span class="p">()</span>
+<span class="n">ComputeTotalWidth</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GetName</span><span class="p">()</span>
+<span class="n">widthCompute</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Для парных функций используйте парные имена.</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li>get/set</li>
+<li>add/remove</li>
+<li>create/destroy</li>
+<li>start/stop</li>
+<li>insert/delete</li>
+<li>increment/decrement</li>
+<li>old/new</li>
+<li>begin/end</li>
+<li>first/last</li>
+</ul>
+</td><td><ul class="simple">
+<li>up/down</li>
+<li>min/max</li>
+<li>next/previous</li>
+<li>old/new</li>
+<li>open/close</li>
+<li>show/hide</li>
+<li>suspend/resume</li>
+<li>etc.</li>
+</ul>
+</td></tr></table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">AddPage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">RemovePage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">AddPage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">DestroyPage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h2>1.11. Используйте нижний регистр и подчеркивания для пространств имен<a class="headerlink" href="#id11" title="Permalink to this headline">False</a></h2>
+<p>Пишите имена пространств имен в нижнем регистре с использованием подчеркивания в
+качестве разделителя.</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Перенести принципы из <a class="reference external" href="https://google.github.io/styleguide/cppguide.html#Namespace_Names">https://google.github.io/styleguide/cppguide.html#Namespace_Names</a></p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span>
+<span class="n">model</span><span class="o">::</span><span class="n">analyzer</span>
+<span class="n">common</span><span class="o">::</span><span class="n">math_geometry</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">SAMPLE</span>
+<span class="n">Model</span><span class="o">::</span><span class="n">analyzer</span>
+<span class="n">common</span><span class="o">::</span><span class="n">mathGeometry</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h2>1.12. Использование распространенных сокращений и соглашений при именовании<a class="headerlink" href="#id12" title="Permalink to this headline">False</a></h2>
+<p>Используйте множественные формы существительных для обозначения коллекций объектов.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">points</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Используйте префикс “i” для переменных, определяющих порядковый номер некоторого объекта.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">i_point</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Например, такой префикс можно использовать для именования индексов строк (row) и
+столбцов (column) при написании циклов обхода матрицы.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">ptrdiff_t</span> <span class="n">i_row</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i_row</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">RowCount</span><span class="p">();</span> <span class="n">i_row</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">ptrdiff_t</span> <span class="n">i_col</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i_col</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">ColumnCount</span><span class="p">();</span> <span class="n">i_col</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">RowCount</span><span class="p">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">ColumnCount</span><span class="p">();</span> <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Используйте префиксы “is”, “has”, “can”, “should” для имен переменных и
+функций, определяющих логические свойства некоторого объекта.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">is_book</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">CanMove</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Для переменных, определяющих число некоторых объектов, можно использовать
+префикс “n” (сокращение от “number_of”).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">n_point</span> <span class="o">=</span> <span class="n">points</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h2>1.13. Используйте верхний регистр и подчеркивания для макроопределений<a class="headerlink" href="#id13" title="Permalink to this headline">False</a></h2>
+<p>Пишите макроопределения в верхнем регистре с использованием подчеркивания в качестве разделителя.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef PAGER_H_20110201</span>
+<span class="cp">#define PAGER_H_20110201</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h2>1.14. Используйте одиночные заглавные буквы для идентификаторов типизированных параметров шаблонов<a class="headerlink" href="#id14" title="Permalink to this headline">False</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">C</span><span class="p">,</span> <span class="k">typename</span> <span class="n">D</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id15">
+<h2>1.15. Избегайте отрицаний в идентификаторах<a class="headerlink" href="#id15" title="Permalink to this headline">False</a></h2>
+<p>Используйте имена переменных без отрицаний. Наличие отрицания в имени переменной
+сильно усложняет понимание логических выражений, особенно, если в последних
+присутствует логическое отрицание.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">is_error</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="nf">can_move</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">is_not_error</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="nf">cant_move</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_not_error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id16">
+<h2>1.16. Избегайте запрещенных идентификаторов<a class="headerlink" href="#id16" title="Permalink to this headline">False</a></h2>
+<p>Запрещено начинать имена с подчеркивания (резервируется для реализации
+компиляторов).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">_fileName</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cpp-style-guide-formatting.html" class="btn btn-neutral float-right" title="2. Форматрирование исходного текста программ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cpp-style-guide-intro.html" class="btn btn-neutral" title="Введение" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
+      Last updated on Sep 23, 2018.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

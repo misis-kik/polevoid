@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Использование сервиса mysvn.ru &mdash; polevoid.ru</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="polevoid.ru" href="../index.html"/>
+        <link rel="up" title="Системы хранения версий" href="index.html"/>
+        <link rel="next" title="2. SVN-клиент TortoiseSVN (Windows)" href="vcs-svn-client-tortoisesvn.html"/>
+        <link rel="prev" title="Системы хранения версий" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> polevoid.ru
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cpp-style-guide/index.html">Правила кодирования C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Системы хранения версий</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Использование сервиса mysvn.ru</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.1. Регистрация на сервисе mysvn.ru</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.2. Навигация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-users">1.3. Экран Пользователи</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.4. Экран Репозитории</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-user-create">1.5. Создание нового пользователя</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-repo-create">1.6. Создание нового хранилища</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.7. Настройка прав доступа к хранилищу</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-user-details">1.8. Изменение настроек пользователя</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-user-remove">1.9. Удаление пользователя</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-repo-details">1.10. Изменение настроек хранилища</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-hosting-mysvn-ru-repo-remove">1.11. Удаление хранилища</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vcs-svn-client-tortoisesvn.html">2. SVN-клиент TortoiseSVN (Windows)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcs-svn-client-tortoisesvn-install.html">3. Инсталляция SVN-клиент TortoiseSVN (Windows)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcs-svn-client-svn.html">4. Консольный SVN-клиент</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">polevoid.ru</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Системы хранения версий</a> &raquo;</li>
+        
+      <li>1. Использование сервиса mysvn.ru</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mysvn-ru">
+<h1>1. Использование сервиса mysvn.ru<a class="headerlink" href="#mysvn-ru" title="Permalink to this headline">False</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Использование svn-хранилища рассматривается в упрощенной форме (не
+используются возможности тегирования tag и ветвления branch).</p>
+</div>
+<p>Для начала работы:</p>
+<ol class="arabic simple">
+<li>зарегистрируйтесь на сервисе mysvn.ru;</li>
+<li>создайте пользователя, под учетыми данными которого вы будете работать
+с хранилищем;</li>
+<li>создайте хранилище и дайте вашему пользователю права на запись в это
+хранилище.</li>
+</ol>
+<div class="section" id="id1">
+<h2>1.1. Регистрация на сервисе mysvn.ru<a class="headerlink" href="#id1" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Снять картинки и кратко описать.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>1.2. Навигация<a class="headerlink" href="#id2" title="Permalink to this headline">False</a></h2>
+<p>Основным экраном для управления хранилищами является
+<span class="guilabel">Панель управления</span>.</p>
+<img alt="../_images/control-panel.png" src="../_images/control-panel.png" />
+<p>В левой части расположено главное меню</p>
+<img alt="../_images/main-menu.png" src="../_images/main-menu.png" />
+<p>чере которое по ссылке <span class="guilabel">Пользователей</span></p>
+<img alt="../_images/main-menu-users.png" src="../_images/main-menu-users.png" />
+<p>можно перейти к экрану <span class="guilabel">Пользователи</span> или перейдя по ссылке
+<span class="guilabel">Репозиториев</span></p>
+<img alt="../_images/main-menu-repos.png" src="../_images/main-menu-repos.png" />
+<p>открыть экран <span class="guilabel">Репозитории</span>.</p>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-users">
+<span id="id3"></span><h2>1.3. Экран Пользователи<a class="headerlink" href="#vcs-hosting-mysvn-ru-users" title="Permalink to this headline">False</a></h2>
+<p>Экран <span class="guilabel">Пользователи</span> отображает список всех зарегистрированных
+пользователей и позволяет <a class="reference internal" href="#vcs-hosting-mysvn-ru-user-create"><span class="std std-ref">создавать пользователей</span></a>,
+<a class="reference internal" href="#vcs-hosting-mysvn-ru-user-details"><span class="std std-ref">редактировать настройки</span></a> для
+существующих пользователей (например, поменять пароль) и
+<a class="reference internal" href="#vcs-hosting-mysvn-ru-user-remove"><span class="std std-ref">удалять пользователей</span></a>.</p>
+<div class="figure" id="id12">
+<img alt="../_images/users.png" src="../_images/users.png" />
+<p class="caption"><span class="caption-text">Экран <span class="guilabel">Пользователи</span></span></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>1.4. Экран Репозитории<a class="headerlink" href="#id4" title="Permalink to this headline">False</a></h2>
+<p>Экран <span class="guilabel">Репозитории</span> отображает список всех хранилищ и позволяет
+<a class="reference internal" href="#vcs-hosting-mysvn-ru-repo-create"><span class="std std-ref">создавать новые хранилища</span></a>,
+<a class="reference internal" href="#vcs-hosting-mysvn-ru-repo-details"><span class="std std-ref">редактировать настройки</span></a> для
+существующих и <a class="reference internal" href="#vcs-hosting-mysvn-ru-repo-remove"><span class="std std-ref">удалять хранилища</span></a>.</p>
+<div class="figure" id="id13">
+<img alt="../_images/repos.png" src="../_images/repos.png" />
+<p class="caption"><span class="caption-text">Экран <span class="guilabel">Репозитории</span></span></p>
+</div>
+<p>Имена хранилищ являются гиперссылками, по которым можно перейти к полным
+описаниям и настройкам соответствующих хранилищ.</p>
+<div class="figure" id="id14">
+<img alt="../_images/repos-link-info.png" src="../_images/repos-link-info.png" />
+<p class="caption"><span class="caption-text">Пример</span></p>
+</div>
+<p>Пример информации о хранилище и доступ к настройкам представлен на
+следующей иллюстрации.</p>
+<div class="figure" id="id15">
+<img alt="../_images/repo-info-and-options.png" src="../_images/repo-info-and-options.png" />
+<p class="caption"><span class="caption-text">Экрана подробной информации о хранилище и настроек</span></p>
+</div>
+<p>Наиболее полезными являются раздел <span class="guilabel">Subversion</span> в котором можно
+узнать адрес хранилища (поле <span class="guilabel">Ссылка</span>) и размер базы хранилища
+(поле <span class="guilabel">Размер</span>).</p>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-user-create">
+<span id="id5"></span><h2>1.5. Создание нового пользователя<a class="headerlink" href="#vcs-hosting-mysvn-ru-user-create" title="Permalink to this headline">False</a></h2>
+<p>Перейдите к экрану <span class="guilabel">Пользователи</span> и нажмите кнопку
+<span class="guilabel">Добавить</span>.</p>
+<img alt="../_images/users-add.png" src="../_images/users-add.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">К списку пользователей всегда можно перейти по ссылке
+<span class="guilabel">Пользователей</span> в главном меню (левая часть экрана).</p>
+</div>
+<p>Укажите имя пользователя (login), пароль (password) и нажмите кнопку
+<span class="guilabel">Сохранить</span>.</p>
+<img alt="../_images/users-new-info.png" src="../_images/users-new-info.png" />
+<p>Если все прошло успешно, то должен открыться экран <span class="guilabel">Пользователи</span>,
+накотором созданный пользователь будет в списке зарегистрированных.</p>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-repo-create">
+<span id="id6"></span><h2>1.6. Создание нового хранилища<a class="headerlink" href="#vcs-hosting-mysvn-ru-repo-create" title="Permalink to this headline">False</a></h2>
+<p>Откройте закладку с перечислением хранилищ</p>
+<img alt="../_images/open-repos-tab.png" src="../_images/open-repos-tab.png" />
+<p>Нажмите на кнопку <span class="guilabel">Добавить</span>.</p>
+<img alt="../_images/new-repo-button.png" src="../_images/new-repo-button.png" />
+<p>В форме <span class="guilabel">Создание нового репозитория</span> выберите вариант
+<span class="guilabel">Создание пустого репозитория</span> (умолчательное значение) и нажмите
+кнопку <span class="guilabel">Далее</span>.</p>
+<img alt="../_images/new-repo-form.png" src="../_images/new-repo-form.png" />
+<p>Укажите название хранилища, снимите отметку <span class="guilabel">Создать директории
+trunk,branches,tags</span> и нажмите кнопку <span class="guilabel">Создать</span>.</p>
+<img alt="../_images/new-repo-form-info.png" src="../_images/new-repo-form-info.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Студентам рекомендуется в качестве названия хранилища указывать
+транслитерированные (латиницей) фамилию и инициалы в нижнем регистре через
+подчеркивание.
+Например: Иванов И.И. -&gt; ivanov_i_i.</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Если вы выберите <span class="guilabel">Создать директории trunk,branches,tags</span>
+(умолчательное значение), то потом необходимо вручную удалить папки trunk,
+branches, tags, которые будут созданы автоматически.</p>
+</div>
+<p>Если все прошло успешно, то должен появиться экран следующего вида.</p>
+<img alt="../_images/new-repo-final.png" src="../_images/new-repo-final.png" />
+<p>Далее необходимо настроить права доступа к созданному хранилищу, нажав кнопку
+<span class="guilabel">Права доступа</span>.</p>
+</div>
+<div class="section" id="id7">
+<h2>1.7. Настройка прав доступа к хранилищу<a class="headerlink" href="#id7" title="Permalink to this headline">False</a></h2>
+<p>Умолчательно к созданному хранилищу разрешен анонимный доступ на чтение.</p>
+<img alt="../_images/new-repo-access.png" src="../_images/new-repo-access.png" />
+<p>Нажмите кнопку <span class="guilabel">Изменить</span> и перейдите к форме
+<span class="guilabel">Изменение прав пользователей</span>, в которой перечислены все
+зарегистрированные пользователи.</p>
+<img alt="../_images/new-repo-access-users.png" src="../_images/new-repo-access-users.png" />
+<p>Установите дял каждого пользователя в соответсвующем ему выпадающем списке
+требуемые права доступа и нажмите кнопку <span class="guilabel">Сохранить</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Если вы еще не создали пользователя, который будет обладать правами
+записи в зарнилище, то вам необходимо воспользоваться ссылкой
+<span class="guilabel">Перейти к списку пользователей</span> и создать нового пользователя.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">В рамках учебного курса рекомендуется использовать имя
+пользователя, которое совпадает с именем хранилища (транслитерированные
+латиницей фамилия и инициалы в нижнем регистре через подчеркивание).</p>
+</div>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-user-details">
+<span id="id8"></span><h2>1.8. Изменение настроек пользователя<a class="headerlink" href="#vcs-hosting-mysvn-ru-user-details" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">описать</p>
+</div>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-user-remove">
+<span id="id9"></span><h2>1.9. Удаление пользователя<a class="headerlink" href="#vcs-hosting-mysvn-ru-user-remove" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">описать</p>
+</div>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-repo-details">
+<span id="id10"></span><h2>1.10. Изменение настроек хранилища<a class="headerlink" href="#vcs-hosting-mysvn-ru-repo-details" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">описать</p>
+</div>
+</div>
+<div class="section" id="vcs-hosting-mysvn-ru-repo-remove">
+<span id="id11"></span><h2>1.11. Удаление хранилища<a class="headerlink" href="#vcs-hosting-mysvn-ru-repo-remove" title="Permalink to this headline">False</a></h2>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">описать</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vcs-svn-client-tortoisesvn.html" class="btn btn-neutral float-right" title="2. SVN-клиент TortoiseSVN (Windows)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Системы хранения версий" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
+      Last updated on Sep 25, 2018.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

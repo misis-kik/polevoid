@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Правила комментрирования &mdash; polevoid.ru</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="polevoid.ru" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> polevoid.ru
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Правила кодирования C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcs/index.html">Системы хранения версий (Version Control System, VCS)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">polevoid.ru</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Правила комментрирования</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Правила комментрирования<a class="headerlink" href="#id1" title="Permalink to this headline">False</a></h1>
+<p>Лучший способ писать меньше комментариев - это писать самодокументирующий код.
+Проще дать “говорящее” имя переменной и кратко обозначить ее назначение, чем
+использовать непонятное имя и писать подробные комменатрии.</p>
+<p>Код, который вы пишите, вы пишите не для себя, а для того, кто будет работать с
+вашим кодом в следующий раз. Хотя, возможно, это будете и вы сами.</p>
+<div class="section" id="id2">
+<h2>Пишите все комментарии на русском языке.<a class="headerlink" href="#id2" title="Permalink to this headline">False</a></h2>
+<p>Не все, кто будет читать ваш код, могут владеть английским на должном уровне.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Это правило относится к учебному курсу. Если ваш заказчик или проектная группа
+в качестве рабочего языка использует английский (или еще какой-то) - используйте
+что положено.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Используйте комментарии по прямому назначению<a class="headerlink" href="#id3" title="Permalink to this headline">False</a></h2>
+<p>Избегайте использования комментариев для отключения больших фрагментов кода.</p>
+<dl class="docutils">
+<dt>Если есть необходимость отключить фрагмент кода, то:</dt>
+<dd><ul class="first last simple">
+<li>воспользйтесь препроцессором при соответсвующим комментировании;</li>
+<li>постарайтесь избежать попадания таких фрагментов кода под систему хранения версий.</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#if DISABLE_USER_CHECK  </span><span class="c1">// disable for test</span>
+<span class="k">struct</span> <span class="n">UserLoginInfo</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">m_userId</span><span class="p">;</span> <span class="c1">//&lt; идентификатор пользователя АСУ</span>
+   <span class="n">TimeStamp</span> <span class="n">m_lastLogin</span><span class="p">;</span> <span class="c1">//&lt; метка времени последнего входа в систему</span>
+<span class="p">};</span>
+<span class="p">...</span>
+<span class="cp">#endif </span><span class="c1">// DISABLE_USER_CHECK</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h2>Описывайте каждый файл исходного текста<a class="headerlink" href="#id4" title="Permalink to this headline">False</a></h2>
+<dl class="docutils">
+<dt>В начало каждого файла исходного текста вставляйте</dt>
+<dd><ul class="first last simple">
+<li>лицензионное соглашение</li>
+<li>описание по следующему шаблону (имя самого файла, краткое описание, автор, дата создания).</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ШАБЛОН:</th><td class="field-body"><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//\file   имя файла</span>
+<span class="c1">//\brief  краткое описание содержимого файла</span>
+<span class="c1">//\author ФИО автора</span>
+<span class="c1">//\date   дата создания файла</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//\file   codedialog.h</span>
+<span class="c1">//\brief  Класс диалога выбора входящего номера</span>
+<span class="c1">//\author Полевой Дмитрий</span>
+<span class="c1">//\date   04.09.2004</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h2>Описывайте переменные<a class="headerlink" href="#id5" title="Permalink to this headline">False</a></h2>
+<p>Описывайте в комментариях назначение переменных (как для обычных переменных, так и для полей классов).</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">примеры кода или ссылки (<span class="xref std std-ref">примеры комментирования переменных</span>)</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Описывайте каждую функцию<a class="headerlink" href="#id6" title="Permalink to this headline">False</a></h2>
+<p>Комментируйте объявление каждой функции с использованием следующего шаблона.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ШАБЛОН:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">\brief краткое описание функции</span>
+<span class="cm">\param описание каждого параметра (имя [in/out] - описание)</span>
+<span class="cm">\retval TYPE, основные значения</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Обратите внимание на</p>
+<ul class="last simple">
+<li>правильное написание тегов (‘brief’, ‘param’, ‘retval’)</li>
+<li>указание типа возвращаемого значения при описании результов</li>
+<li>в таком формате описываются параметры функции (а не внутренние переменные)</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">\brief Функция позволяющая пользователю выбрать в диалоге папку</span>
+<span class="cm">\param pUserPromt [in]     - текст, который будет отображаться над деревом</span>
+<span class="cm">                             папок (подсказка)</span>
+<span class="cm">\param pFilePath  [in/out] - папка. В диалоге выбранная папка сначала</span>
+<span class="cm">                             будет pPath. Если пользователь нажал &quot;OK&quot;, то</span>
+<span class="cm">                             в szPath запишется выбранная пользователем</span>
+<span class="cm">                             папка</span>
+<span class="cm">\param lenPath    [in]     - размер буфера pFilePath</span>
+<span class="cm">\param pRootPath  [in]     - путь к корневой папке, в которой пользователь</span>
+<span class="cm">                             будет выбирать</span>
+<span class="cm">\retval bool - true, если удалось, иначе false</span>
+<span class="cm">*/</span>
+<span class="kt">bool</span>
+<span class="nf">GetFolder</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pUserPromt</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pPath</span><span class="p">,</span>
+          <span class="kt">size_t</span> <span class="kt">int</span> <span class="n">lenPath</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pRootPath</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h2>Размещайте коментарии рядом с кодом (перед блоком или в конце строки)<a class="headerlink" href="#id7" title="Permalink to this headline">False</a></h2>
+<p>Размещайте комментарии либо до комментируемого фрагмента, либо в конце комментируемой строки по следующему образцу.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ШАБЛОН:</th><td class="field-body"><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">/// комментарий для документации в начале блока</span>
+<span class="s">&quot;statement&quot;</span>
+</pre></div>
+</div>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;statement&quot;</span> <span class="c1">///&lt; комментарий для документации в конце строки</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Старайтесь не смешивать эти способы внутри одного блока кода (например, при определении пользовательского типа).</p>
+</div>
+<p>Первый способ комментирования удобен для:</p>
+<blockquote>
+<div><ul class="simple">
+<li>комментариев перед блоками кода;</li>
+<li>длинных комментариев при объявлении/определении переменных.</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">/// Главный цикл перебора компонент из хранилища.</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">indexComp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">indexComp</span> <span class="o">&lt;</span> <span class="n">MAX_COMP</span><span class="p">;</span> <span class="o">++</span><span class="n">indexComp</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">indexComp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">indexComp</span> <span class="o">&lt;</span> <span class="n">MAX_COMP</span><span class="p">;</span> <span class="o">++</span><span class="n">indexComp</span><span class="p">)</span>
+<span class="c1">/// по компонентам хранилиша</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span>
+<span class="p">{</span>
+   <span class="c1">/// идентификатор пользователя АСУ</span>
+   <span class="kt">int</span> <span class="n">m_userId</span><span class="p">;</span>
+   <span class="c1">/// метка времени последнего входа в систему</span>
+   <span class="n">TimeStamp</span> <span class="n">m_lastLogin</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Второй способ комментирования наиболее удобен для коротких комментариев, например, при определении переменных.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">UserLoginInfo</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">m_userId</span><span class="p">;</span> <span class="c1">//&lt; идентификатор пользователя АСУ</span>
+   <span class="n">TimeStamp</span> <span class="n">m_lastLogin</span><span class="p">;</span> <span class="c1">//&lt; метка времени последнего входа в систему</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ПРИМЕР:</th><td class="field-body"><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">userId</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">///&lt; идентификатор пользователя</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h2>Пишите комментарии с отступом комментируемого кода<a class="headerlink" href="#id8" title="Permalink to this headline">False</a></h2>
+<p>Комментарии пишутся с отступом комментируемого кода.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Найдем среднее значение</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">iRow</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">iRow</span> <span class="o">!=</span> <span class="n">nRow</span><span class="p">;</span>
+    <span class="o">++</span><span class="n">iRow</span><span class="p">)</span>
+<span class="c1">// По строкам таблицы.</span>
+<span class="p">{</span>
+    <span class="c1">// Накопитель суммы по строке.</span>
+    <span class="kt">int</span> <span class="n">totalValue</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>НЕПРАВИЛЬНО</td>
+<td><div class="first last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Найдем среднее значение</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">iRow</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">iRow</span> <span class="o">!=</span> <span class="n">nRow</span><span class="p">;</span>
+    <span class="o">++</span><span class="n">iRow</span><span class="p">)</span>
+    <span class="c1">// По строкам таблицы.</span>
+<span class="p">{</span>
+<span class="c1">// Накопитель суммы по строке.</span>
+    <span class="kt">int</span> <span class="n">totalValue</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="s">&quot;statements&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h2>Пишите проще код, а не увеличивайте объем комментариев<a class="headerlink" href="#id9" title="Permalink to this headline">False</a></h2>
+<p>Наличие комментариев не освобождает от ответственности за излишне сложный код —
+изощренный код должен быть переписан, а не задокументирован.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
+      Last updated on Sep 23, 2018.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
