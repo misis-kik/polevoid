@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. :: &mdash; polevoid.ru</title>
+  <title>3. Локальные определения &mdash; polevoid.ru</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="polevoid.ru" href="../index.html"/>
         <link rel="up" title="Правила кодирования C++" href="index.html"/>
-        <link rel="next" title="Системы хранения версий (Version Control System, VCS)" href="../vcs/index.html"/>
+        <link rel="next" title="Системы хранения версий" href="../vcs/index.html"/>
         <link rel="prev" title="2. Форматрирование исходного текста программ" href="cpp-style-guide-formatting.html"/> 
 
   
@@ -89,11 +89,11 @@
 <li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-intro.html">Введение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-naming.html">1. Правила именования</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp-style-guide-formatting.html">2. Форматрирование исходного текста программ</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3. ::</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4. Локальные определения</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Локальные определения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4. Минимизируйте область видимости переменных</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../vcs/index.html">Системы хранения версий (Version Control System, VCS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcs/index.html">Системы хранения версий</a></li>
 </ul>
 
             
@@ -140,7 +140,7 @@
         
           <li><a href="index.html">Правила кодирования C++</a> &raquo;</li>
         
-      <li>3. ::</li>
+      <li>3. Локальные определения</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,12 +158,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>3. ::<a class="headerlink" href="#id1" title="Permalink to this headline">False</a></h1>
+<h1>3. Локальные определения<a class="headerlink" href="#id1" title="Permalink to this headline">False</a></h1>
 </div>
 <div class="section" id="id2">
-<h1>4. Локальные определения<a class="headerlink" href="#id2" title="Permalink to this headline">False</a></h1>
-<hr class="docutils" />
-<p>читателю найти это определение, разобраться какого типа переменная и какое
+<h1>4. Минимизируйте область видимости переменных<a class="headerlink" href="#id2" title="Permalink to this headline">False</a></h1>
+<p>Опреляйте и сразу инициализируйте переменные в максимально узкой области
+видимости как можно “ближе” к первому месту использования. Это помогает
+читателю найти это определение, разобраться какого типа переменная и какое
 у нее начальное значение, ознакомится с комментарием (при наличии).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -178,15 +179,15 @@
 </div>
 <div class="admonition error">
 <p class="first admonition-title">Error</p>
-<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// Bad -- initialization separate from declaration.</span>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>   <span class="c1">// неинициализированная переменная!</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <p>Помните о возможности использования списков инициализации.</p>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
 </pre></div>
 </div>
 </div>
@@ -204,12 +205,12 @@
 значений часто является признаком использования примеров с использование
 устаревшего стандарта языка.</p>
 </div>
-<p>Структуры
-Обычно, структуры подразумевают использование в виде POD (что требует
-отсутствия конструктора).</p>
+<p>Если у структуры нет умолчательного конструктора (планируется использование
+в виде POD) и нет инициализвции членов в опредлении типа, то при определении
+переменной необхоимо использовать инициализирующий список.</p>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DataInStruct</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">DataInStruct</span> <span class="n">s</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </pre></div>
 </div>
 </div>
@@ -233,12 +234,16 @@
 “длинных” циклов определения объектов, которые могут быть повторно использованы
 в теле цикла. Это позволяет избежать вызова конструктора и деструктора на
 каждой итерации такого цикла.</p>
-<p>// Inefficient implementation:
-for (int i(0); i &lt; 1000000; i += 1) {</p>
-<blockquote>
-<div>Foo f; // My ctor and dtor get called 1000000 times each.
-f.DoSomething(i);</div></blockquote>
-<p>}</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Неэффективная реализация</p>
+<div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Foo</span> <span class="n">f</span><span class="p">;</span> <span class="c1">// ctor и dtor вызываются 1000000 раз</span>
+  <span class="n">f</span><span class="p">.</span><span class="n">DoSomething</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
 <div class="last highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Foo</span> <span class="n">worker</span><span class="p">;</span> <span class="c1">// My ctor and dtor get called once each.</span>
@@ -248,7 +253,6 @@ f.DoSomething(i);</div></blockquote>
 </pre></div>
 </div>
 </div>
-<p>It may be more efficient to declare such a variable used in a loop outside that loop:</p>
 </div>
 
 
@@ -258,7 +262,7 @@ f.DoSomething(i);</div></blockquote>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../vcs/index.html" class="btn btn-neutral float-right" title="Системы хранения версий (Version Control System, VCS)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../vcs/index.html" class="btn btn-neutral float-right" title="Системы хранения версий" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cpp-style-guide-formatting.html" class="btn btn-neutral" title="2. Форматрирование исходного текста программ" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -271,7 +275,7 @@ f.DoSomething(i);</div></blockquote>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Полевой Дмитрий (Polevoy Dmitry).
-      Last updated on Sep 23, 2018.
+      Last updated on Sep 26, 2018.
 
     </p>
   </div> 
